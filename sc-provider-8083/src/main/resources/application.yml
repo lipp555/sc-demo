@@ -1,0 +1,42 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: sc-provider
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test2?characterEncoding=UTF-8
+    username: root
+    password: root
+
+logging:
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info   # Spring Boot启动时的日志级别
+    org.hibernate: info  # Hibernate运行日志级别
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.jeremy: debug
+
+eureka:
+  client:
+    service-url: # 指定Eureka服务注册中心
+      defaultZone: http://localhost:8000/eureka
+      # defaultZone: http://eureka8100.com:8100/eureka,http://eureka8200.com:8200/eureka,http://eureka8300.com:8300/eureka
+
+info:
+  company.name: www.jeremy.com
+  company.addr: China Beijing
+  company.tel: 12345678
+  app.name: kaikeba-msc
+  app.desc: mic-server-cloud
+  author: kaikeba

@@ -1,0 +1,13 @@
+server:
+  port: 9091
+
+
+logging:
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info   # Spring Boot启动时的日志级别
+    org.hibernate: info  # Hibernate运行日志级别
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.jeremy: debug

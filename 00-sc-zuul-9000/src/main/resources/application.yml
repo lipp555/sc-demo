@@ -1,0 +1,27 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: sc-zuul-gateway
+
+eureka:
+  client:
+    service-url: # 指定Eureka服务注册中心
+      defaultZone: http://localhost:8000/eureka
+
+logging:
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info   # Spring Boot启动时的日志级别
+    org.hibernate: info  # Hibernate运行日志级别
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.jeremy: debug
+
+zuul:
+  routes:
+    mydepart.serviceId: sc-consumer
+    mydepart.path: /dc/**
+  ignored-services: sc-consumer

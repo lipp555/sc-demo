@@ -1,0 +1,22 @@
+server:
+  port: 9093
+
+
+logging:
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info   # Spring Boot启动时的日志级别
+    org.hibernate: info  # Hibernate运行日志级别
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.jeremy: debug
+
+spring:
+  application:
+    name: sc-consumer-feign
+
+eureka:
+  client:
+    service-url: # 指定Eureka服务注册中心
+      defaultZone: http://localhost:8000/eureka
